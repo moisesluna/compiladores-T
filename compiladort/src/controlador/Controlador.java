@@ -6,8 +6,10 @@ import java.awt.event.MouseEvent;
 import java.util.ListIterator;
 
 import vista.Vista;
-import modelo.Circulo;
-import modelo.Cuadrado;
+import modelo.Programa;
+import modelo.Traductor;
+import modelo.Interprete;
+import modelo.Maquina;
 import modelo.Figura;
 import modelo.Modelo;
 
@@ -42,7 +44,10 @@ public class Controlador {
 	public Vista getVista(){
 		return vista;
 	}
-	
+	public void quitarFigura(Figura f){
+		
+		modelo.QuitarFigura(f);
+	}
 	public void anyadirFigura(Figura f){
 		modelo.anyadirFigura(f);
 	}
@@ -54,11 +59,37 @@ public class Controlador {
 	public void eVmousePressed(MouseEvent ev) {
 		if(SwingUtilities.isLeftMouseButton(ev)){ 			//Click boton izquierdo selecciona figura
 			seleccionada=this.getFiguraEn(ev.getPoint());
+			
 		}else if(SwingUtilities.isRightMouseButton(ev)){		//click boton izquierdo añade figura tipo cuadrado
-			this.anyadirFigura(new Cuadrado(ev.getPoint(),40));			
+			if(this.getFiguraEn(ev.getPoint())==null)
+			this.anyadirFigura(new Traductor(ev.getPoint(),40));
+			if(this.getFiguraEn(ev.getPoint()).getSeleccionada()==true && this.getFiguraEn(ev.getPoint()).getTipo()==1){
+			this.quitarFigura(this.getFiguraEn(ev.getPoint()));
+			this.anyadirFigura(new Interprete(ev.getPoint(), 40));
+				
+			}
+			if(this.getFiguraEn(ev.getPoint()).getSeleccionada()==true && this.getFiguraEn(ev.getPoint()).getTipo()==3){
+				this.quitarFigura(this.getFiguraEn(ev.getPoint()));
+				this.anyadirFigura(new Programa(ev.getPoint(), 57));
+					
+				}
+			if(this.getFiguraEn(ev.getPoint()).getSeleccionada()==true && this.getFiguraEn(ev.getPoint()).getTipo()==2){
+				this.quitarFigura(this.getFiguraEn(ev.getPoint()));
+				this.anyadirFigura(new Maquina(ev.getPoint(), 40));
+					
+				}
+			
+				
+				
 		}else if(SwingUtilities.isMiddleMouseButton(ev))//click boton medio añade figura tipo circulo
 		{
-			this.anyadirFigura(new Circulo(ev.getPoint(),40));
+
+			if(this.getFiguraEn(ev.getPoint()).getSeleccionada()==true ){
+				this.quitarFigura(this.getFiguraEn(ev.getPoint()));
+					
+				}
+				
+		//	this.anyadirFigura(new Programa(ev.getPoint(),57));
 		}
 		vista.repaint();		
 	}

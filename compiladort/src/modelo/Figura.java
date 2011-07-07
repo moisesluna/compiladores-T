@@ -6,6 +6,7 @@ import java.awt.Point;
 public abstract class Figura {
 	protected Point posicion;
 	protected boolean seleccionada;
+	protected int tipo;
 	public abstract boolean dentroFigura(Point p);
 	public abstract void dibujar(Graphics g);	
 	
@@ -13,7 +14,14 @@ public abstract class Figura {
 	{
 		this.posicion=posicion;
 	}
-	
+	public  int getTipo(){
+		return tipo;
+		
+	}
+	public void setTipo(int a){
+		
+		tipo=a;
+	}
 	public int getX(){
 		return posicion.x;
 	}

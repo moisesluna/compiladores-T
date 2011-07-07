@@ -15,8 +15,19 @@ public class Modelo {
 		listaFiguras.add(f);
 	}
 	
+	public void QuitarFigura(Figura f){
+		
+		listaFiguras.remove(f);
+		
+	}
 	public List<Figura> getListado(){
 		return listaFiguras;
+	}
+	
+	public void quitarFigura(Figura f){
+		
+		listaFiguras.remove(f);
+		
 	}
 	
 	public void anyadirFigura(Figura f){
