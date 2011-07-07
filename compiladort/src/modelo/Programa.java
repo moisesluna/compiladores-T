@@ -7,6 +7,8 @@ import java.awt.Point;
 public class Programa extends Figura {
 
 	private int radio;
+	private String codigoFuente;
+	private String titulo;
 	
 	public void setRadio(int ancho){
 		this.radio=ancho;
@@ -22,6 +24,24 @@ public class Programa extends Figura {
 		this.seleccionada=false;  
 		this.setTipo(4);
 		//Deberia estar en el constructor de figura pero por simplicidad
+	}
+	
+	public void setCodigoFuente(String codigoF){
+		codigoFuente = codigoF;
+	}
+	
+
+	public void setTitulo(String Titulo){
+		titulo = Titulo;
+	}
+	
+	public String getCodigoFuente(String codigoF){
+		return codigoFuente;
+	}
+	
+
+	public String getTitulo(){
+		return titulo;
 	}
 	
 	@Override

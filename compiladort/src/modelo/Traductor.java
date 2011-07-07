@@ -7,6 +7,10 @@ import java.awt.Point;
 public class Traductor extends Figura {
 
 	private int ancho;
+	private String codigoGenerado;
+	private String codigoFuente;
+	private String maquina;
+	
 	public Traductor(Point posicion, int ancho){
 		this.posicion=posicion;
 		this.ancho=ancho;
@@ -21,6 +25,35 @@ public class Traductor extends Figura {
 	public int getAncho(){
 		return ancho;
 	}
+	
+	public void setCodigoGenerado(String codigoG){
+		codigoGenerado = codigoG;
+	}
+	
+
+	public void setCodigoFuente(String codigoF){
+		codigoFuente = codigoF;
+	}
+	
+
+	public void setMaquina(String Maquina){
+		maquina = Maquina;
+	}
+	
+	public String getCodigoGenerado(){
+		return codigoGenerado;
+	}
+	
+
+	public String getCodigoFuente(String codigoF){
+		return codigoFuente;
+	}
+	
+
+	public String getMaquina(){
+		return maquina;
+	}
+	
 	
 	@Override
 	//Muy rudimentario y solo a modo demostrativo, para uso serio debe ser mejorada

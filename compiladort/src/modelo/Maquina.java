@@ -6,6 +6,7 @@ import java.awt.Point;
 
 public class Maquina extends Figura{
 	private int ancho;
+	private String maquina;
 	/*
 	private int a[];
 	private int b[];
@@ -34,6 +35,14 @@ public class Maquina extends Figura{
 	}
 	public int getAncho(){
 		return ancho;
+	}
+	
+	public void setMaquina(String Maquina){
+		maquina = Maquina;
+	}
+	
+	public String getMaquina(){
+		return maquina;
 	}
 	
 	@Override

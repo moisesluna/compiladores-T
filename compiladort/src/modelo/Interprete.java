@@ -8,6 +8,9 @@ import java.awt.Point;
 public class Interprete extends Figura{
 
 	private int ancho;
+	private String codigoFuente;
+	private String maquina;
+	
 	public Interprete(Point posicion, int ancho){
 		this.posicion=posicion;
 		this.ancho=ancho;
@@ -22,6 +25,24 @@ public class Interprete extends Figura{
 	}
 	public int getAncho(){
 		return ancho;
+	}
+	
+	public void setCodigoFuente(String codigoF){
+		codigoFuente = codigoF;
+	}
+	
+
+	public void setMaquina(String Maquina){
+		maquina = Maquina;
+	}
+	
+	public String getCodigoFuente(String codigoF){
+		return codigoFuente;
+	}
+	
+
+	public String getMaquina(){
+		return maquina;
 	}
 	
 	@Override
