@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 
 import controlador.Controlador;
+import javax.swing.JOptionPane;
 
 
 public class Vista extends JPanel {
@@ -31,7 +32,9 @@ public class Vista extends JPanel {
 
 		//Mejorable al 1000% solo por simplificacion realizado de esta forma
 		MouseController mouseControl = new MouseController() {
-			public void mouseClicked(MouseEvent event) {}
+			public void mouseClicked(MouseEvent event) {
+                            
+                        }
 			public void mouseEntered(MouseEvent event) {}
 			public void mouseExited(MouseEvent event) {}
 			public void mouseMoved(MouseEvent event) {}
