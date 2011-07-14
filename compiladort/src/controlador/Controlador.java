@@ -11,17 +11,20 @@ import modelo.Interprete;
 import modelo.Maquina;
 import modelo.Figura;
 import modelo.Modelo;
+import vista.Lateral;
 
 public class Controlador {
 
     private Modelo modelo;
     private Vista vista;
     private Figura seleccionada;
+    private Lateral lateral;
 
-    public Controlador(Modelo modelo, Vista vista) {
+    public Controlador(Modelo modelo, Vista vista, Lateral lateral) {
         this.modelo = modelo;
         this.vista = vista;
         seleccionada = null;
+        this.lateral = lateral;
     }
 
     public Figura obtenerFigura(Point posicion) {
@@ -61,26 +64,43 @@ public class Controlador {
         if (SwingUtilities.isLeftMouseButton(ev)) { 			//Click boton izquierdo selecciona figura
             seleccionada = this.getFiguraEn(ev.getPoint());
 
-        } else if (SwingUtilities.isRightMouseButton(ev)) {		//click boton izquierdo a�ade figura tipo cuadrado
-            if (this.getFiguraEn(ev.getPoint()) == null) {
-                this.anyadirFigura(new Traductor(ev.getPoint(), 40));
-            }
-            if (this.getFiguraEn(ev.getPoint()).getSeleccionada() == true && this.getFiguraEn(ev.getPoint()).getTipo() == 1) {
-                this.quitarFigura(this.getFiguraEn(ev.getPoint()));
-                this.anyadirFigura(new Interprete(ev.getPoint(), 40));
-            }
-            if (this.getFiguraEn(ev.getPoint()).getSeleccionada() == true && this.getFiguraEn(ev.getPoint()).getTipo() == 3) {
-                this.quitarFigura(this.getFiguraEn(ev.getPoint()));
+        } else if (SwingUtilities.isRightMouseButton(ev)) {
+            if (lateral.gettipo() == 1) {
                 this.anyadirFigura(new Programa(ev.getPoint(), 57));
             }
+            if (lateral.gettipo() == 2) {
+                this.anyadirFigura(new Traductor(ev.getPoint(), 40));
+            }
+            if (lateral.gettipo() == 3) {
+                this.anyadirFigura(new Interprete(ev.getPoint(), 57));
+            }
+            if (lateral.gettipo() == 4) {
+                this.anyadirFigura(new Maquina(ev.getPoint(), 57));
+            } 
+            else {
+                
+            }
+            /*
+            //click boton izquierdo a�ade figura tipo cuadrado
+            if (this.getFiguraEn(ev.getPoint()) == null) {
+            this.anyadirFigura(new Traductor(ev.getPoint(), 40));
+            }
+            if (this.getFiguraEn(ev.getPoint()).getSeleccionada() == true && this.getFiguraEn(ev.getPoint()).getTipo() == 1) {
+            this.quitarFigura(this.getFiguraEn(ev.getPoint()));
+            this.anyadirFigura(new Interprete(ev.getPoint(), 40));
+            }
+            if (this.getFiguraEn(ev.getPoint()).getSeleccionada() == true && this.getFiguraEn(ev.getPoint()).getTipo() == 3) {
+            this.quitarFigura(this.getFiguraEn(ev.getPoint()));
+            this.anyadirFigura(new Programa(ev.getPoint(), 57));
+            }
             if (this.getFiguraEn(ev.getPoint()).getSeleccionada() == true && this.getFiguraEn(ev.getPoint()).getTipo() == 2) {
-                this.quitarFigura(this.getFiguraEn(ev.getPoint()));
-                this.anyadirFigura(new Maquina(ev.getPoint(), 40));
+            this.quitarFigura(this.getFiguraEn(ev.getPoint()));
+            this.anyadirFigura(new Maquina(ev.getPoint(), 40));
             }
-        } else if (SwingUtilities.isMiddleMouseButton(ev)) {//click boton medio a�ade figura tipo circulo
+            } else if (SwingUtilities.isMiddleMouseButton(ev)) {//click boton medio a�ade figura tipo circulo
             if (this.getFiguraEn(ev.getPoint()).getSeleccionada() == true) {
-                this.quitarFigura(this.getFiguraEn(ev.getPoint()));
-            }
+            this.quitarFigura(this.getFiguraEn(ev.getPoint()));
+            }*/
             //	this.anyadirFigura(new Programa(ev.getPoint(),57));
         }
         vista.repaint();

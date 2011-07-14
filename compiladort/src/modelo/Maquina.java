@@ -17,7 +17,7 @@ public class Maquina extends Figura {
         this.posicion = posicion;
         this.ancho = ancho;
         this.seleccionada = false;
-        this.setTipo(3);
+        this.setTipo(4);
         /*
         this.a=new int[3];
         this.b=new int[3];

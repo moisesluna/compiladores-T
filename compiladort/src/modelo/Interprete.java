@@ -14,7 +14,7 @@ public class Interprete extends Figura {
         this.posicion = posicion;
         this.ancho = ancho;
         this.seleccionada = false;
-        this.setTipo(2);
+        this.setTipo(3);
         //Deberia estar en el constructor pero por simplicidad
     }
 

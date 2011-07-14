@@ -15,7 +15,7 @@ public class Traductor extends Figura {
         this.posicion = posicion;
         this.ancho = ancho;
         this.seleccionada = false;
-        this.setTipo(1); //traductor es tipo 1
+        this.setTipo(2); //traductor es tipo 1
         //Deberia estar en el constructor pero por simplicidad
     }
 

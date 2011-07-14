@@ -22,7 +22,7 @@ public class Programa extends Figura {
         this.posicion = posicion;
         this.radio = radio;
         this.seleccionada = false;
-        this.setTipo(4);
+        this.setTipo(1);
         //Deberia estar en el constructor de figura pero por simplicidad
     }
 
