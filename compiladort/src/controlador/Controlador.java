@@ -117,16 +117,13 @@ public class Controlador {
                 for (Figura elemento2 : it) {
                     if (elemento2.getTipo() == 4) // Si es una maquina es otro punto ya que es inferior al traductor
                     {
-                        if (elemento.getTipo() == 2) {
-                            p = elemento.darPunto2();
-                            if (elemento2.dentroFigura2(p)) {
-                                this.quitarFigura(elemento2);
-                                p.x = p.x - 20;
-                                p.y = p.y;
-                                this.anyadirFigura(new Maquina(p, 40));
-                                System.out.println(elemento2.getTipo());
-                            }
-                            p = elemento.darPunto();
+                        p = elemento.darPunto2();
+                        if (elemento2.dentroFigura2(p)) {
+                            this.quitarFigura(elemento2);
+                            p.x = p.x - 20;
+                            p.y = p.y;
+                            this.anyadirFigura(new Maquina(p, 40));
+                            System.out.println(elemento2.getTipo());
                         }
                     } else if (elemento2.dentroFigura2(p)) //comparacion con cada posible figura
                     {
@@ -136,13 +133,15 @@ public class Controlador {
                             p.y = p.y + 20;
                             this.anyadirFigura(new Traductor(p, 40));
                             System.out.println(elemento2.getTipo());
-                        } else if (elemento2.getTipo() == 3) {
+                        }
+                        if (elemento2.getTipo() == 3) {
                             this.quitarFigura(elemento2);
                             p.x = p.x;
                             p.y = p.y - 100;
                             this.anyadirFigura(new Interprete(p, 40));
                             System.out.println(elemento2.getTipo());
-                        } else if (elemento2.getTipo() == 1) {
+                        }
+                        if (elemento2.getTipo() == 1) {
                             this.quitarFigura(elemento2);
                             p.x = p.x - 10;
                             p.y = p.y - 109;
